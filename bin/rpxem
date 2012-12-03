@@ -1,0 +1,14 @@
+#!/usr/bin/env ruby
+
+if (!ARGV[0] || /^-/ =~ ARGV[0] && !File.exist?(ARGV[0]))
+  require 'rpxem/version'
+  puts "RPxem (#{RPxem::VERSION}) https://github.com/wtkt/rpxem"
+  puts 'Usage: rpxem path-to-pxem-file.pxe'
+  puts 'Report bugs to <https://github.com/wktk/rpxem/issues>.'
+elsif (!File.exist?(ARGV[0]) || !source = open(ARGV[0]).read)
+  puts "Can't load file: #{ARGV[0]}"
+  puts "Try `rpxem --help' for more infomation."
+else
+  require 'rpxem'
+  RPxem.run(File::basename(ARGV[0]), source)
+end
