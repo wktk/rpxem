@@ -168,7 +168,7 @@ module RPxem
             count += 1
           elsif ('a' == @filename[@cursor+1].chr.downcase)
             count -= 1
-  				end
+          end
         end
       end
       @cursor += 1
@@ -184,7 +184,7 @@ module RPxem
             count += 1
           elsif ('a' == @filename[@cursor+1].chr.downcase)
             count -= 1
-  				end
+          end
         end
         @cursor -= 1
       end
