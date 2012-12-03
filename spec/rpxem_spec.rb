@@ -16,10 +16,6 @@ describe RPxem do
       @stack = RPxem::Stack.new
     end
 
-    it 'should be Fixnum' do
-      expect{ @stack.push('a') }.to raise_error ArgumentError
-    end
-
     it 'should be positive' do
       expect{ @stack.push(-1) }.to raise_error ArgumentError
     end
@@ -28,8 +24,13 @@ describe RPxem do
       expect{ @stack.push(0) }.not_to raise_error
     end
 
+    it 'can be Bignum' do
+      expect{ @stack.push(13**13) }.not_to raise_error
+    end
+
     it 'should be integer' do
-      expect{ @stack.unshift(0.1) }.to raise_error ArgumentError
+      expect{ @stack << 'a' }.to raise_error ArgumentError
+      expect{ @stack << 0.1 }.to raise_error ArgumentError
     end
 
     it 'can check in #new' do

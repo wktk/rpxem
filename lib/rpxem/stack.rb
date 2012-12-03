@@ -38,9 +38,11 @@ module RPxem
   private
     def simple_check(*args)
       args.each do |arg|
-        raise ArgumentError.new 'Argument must be Fixnum'   if (arg.class != Fixnum)
-        raise ArgumentError.new 'Argument must be positive' if (arg != arg.abs)
-        raise ArgumentError.new 'Argument must be integer'  if (!arg.integer?)
+        if (!arg.is_a? Integer)
+          raise ArgumentError.new 'Argument must be Integer'
+        elsif (arg != arg.abs)
+          raise ArgumentError.new 'Argument must be positive'
+        end
       end
     end
   end
