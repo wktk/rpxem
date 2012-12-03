@@ -10,15 +10,21 @@ enables you to create programs in 0-byte files.
 
 Add this line to your application's Gemfile:
 
-    gem 'rpxem'
+```ruby
+gem 'rpxem'
+```
 
 And then execute:
 
-    $ bundle
+```bash
+$ bundle
+```
 
 Or install it yourself as:
 
-    $ gem install rpxem
+```bash
+$ gem install rpxem
+```
 
 ## Usage
 
@@ -26,26 +32,34 @@ Or install it yourself as:
 
 Require `RPxem`:
 
-    require 'rpxem'
+```ruby
+require 'rpxem'
+```
 
 Open and execute your Pxem **file**:
 
-    path_to_pxem_file = '~/Hello, world!.pxe'
-    RPxem.open(path_to_pxem_file) #=> Hello, world!
+```ruby
+path_to_pxem_file = '~/Hello, world!.pxe'
+RPxem.open(path_to_pxem_file) #=> Hello, world!
+```
 
 Execute your Pxem **code**:
 
-    file_name = 'world!.fHello,.pxe'
-    file_cont = ' Pxem '
-    RPxem.run(file_name, file_cont) #=> Hello, Pxem world!
+```ruby
+file_name = 'world!.fHello,.pxe'
+file_cont = ' Pxem '
+RPxem.run(file_name, file_cont) #=> Hello, Pxem world!
+```
 
 ### Using from CLI
 
 This program also runs as a command-line Pxem interpreter called `rpxem`:
 
-    $ touch "Hello, world!.pxe"
-    $ rpxem "Hello, world!.pxe"
-    Hello, world!
+```bash
+$ touch "Hello, world!.pxe"
+$ rpxem "Hello, world!.pxe"
+Hello, world!
+```
 
 ## Contributing
 
