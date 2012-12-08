@@ -4,7 +4,7 @@ require File.expand_path('../lib/rpxem/version', __FILE__)
 Gem::Specification.new do |gem|
   gem.authors       = ['wktk']
   gem.email         = ['wktk@wktk.in']
-  gem.description   = %q{RPxem is a Ruby implementation of Pxem, a esoteric programming language that enables you to create programs in 0-byte files.}
+  gem.description   = %q{RPxem is a Ruby implementation of Pxem, an esoteric programming language that enables you to create programs in 0-byte files.}
   gem.summary       = %q{Pxem implementation in Ruby}
   gem.homepage      = 'https://github.com/wktk/rpxem'
 
