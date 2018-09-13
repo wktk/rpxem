@@ -1,6 +1,6 @@
 # RPxem
 
-[![Build Status](https://travis-ci.org/wktk/rpxem.png)](https://travis-ci.org/wktk/rpxem)
+[![Build Status](https://travis-ci.org/wktk/rpxem.svg?branch=master)](https://travis-ci.org/wktk/rpxem)
 
 RPxem is a Ruby implementation of [Pxem], an esoteric programming language that
 enables you to create programs in 0-byte files.
