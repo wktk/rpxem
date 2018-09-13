@@ -4,7 +4,8 @@
 
 RPxem is a Ruby implementation of [Pxem], an esoteric programming language that
 enables you to create programs in 0-byte files.
-[Pxem]: https://web.archive.org/web/20120605223423/http://cfs.maxn.jp/neta/pxem.php OR https://esolangs.org/wiki/Pxem
+
+[Pxem]: https://web.archive.org/web/20120605223423/http://cfs.maxn.jp/neta/pxem.php
 
 ## Installation
 
@@ -73,3 +74,8 @@ Hello, world!
 
 Copyright (c) 2012 wktk.  This software is distributed under the
 MIT License.  See `MIT-LICENSE.txt` for details.
+
+## See also
+
+- Original resource: https://web.archive.org/web/20120605223423/http://cfs.maxn.jp/neta/pxem.php
+- Esolang wiki: https://esolangs.org/wiki/Pxem
