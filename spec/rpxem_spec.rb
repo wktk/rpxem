@@ -3,11 +3,11 @@ require 'rpxem_helper'
 describe RPxem do
   describe 'delegation' do
     it 'RPxem.new => RPxem::Interpreter.new' do
-      RPxem.new.class.should == RPxem::Interpreter.new.class
+      expect(RPxem.new.class).to eq(RPxem::Interpreter.new.class)
     end
 
     it 'RPxem.run => #<RPxem::Interpreter>.run' do
-      RPxem.run('hoge.d').should == RPxem::Interpreter.new.run('hoge.d')
+      expect(RPxem.run('hoge.d')).to eq(RPxem::Interpreter.new.run('hoge.d'))
     end
   end
 
@@ -45,49 +45,49 @@ describe RPxem do
 
     describe 'initializing' do
       it 'can set initial stack' do
-        capture{ @pxem.run('.p', '', RPxem::Stack.new([99, 98, 97])) }.should == 'abc'
+        expect(capture{ @pxem.run('.p', '', RPxem::Stack.new([99, 98, 97])) }).to eq('abc')
       end
 
       it 'can open file' do
         testfile = File.join(File.dirname(__FILE__), 'world!.fHello,.pxe')
-        capture{ @pxem.open(testfile) }.should == 'Hello, Pxem world!'
+        expect(capture{ @pxem.open(testfile) }).to eq('Hello, Pxem world!')
       end
 
       it 'can merge command mapping' do
         pxem = RPxem.new({'q' => 'output_all', 'c' => 'output_all'})
-        capture{ pxem.run('Hi.q') }.should == 'Hi'
-        capture{ pxem.run('Hi.c') }.should == 'Hi'
+        expect(capture{ pxem.run('Hi.q') }).to eq('Hi')
+        expect(capture{ pxem.run('Hi.c') }).to eq('Hi')
       end
     end
 
     describe 'get result' do
       it 'should return remaining stack' do
-        @pxem.run('Hi.d').should == [105, 72]
+        expect(@pxem.run('Hi.d')).to eq([105, 72])
       end
 
       it 'can read stack' do
         @pxem.run('a.d')
-        @pxem.stack.should == [97]
+        expect(@pxem.stack).to eq([97])
       end
 
       it 'can read temp area' do
         @pxem.run('a.t')
-        @pxem.temp.should == 97
+        expect(@pxem.temp).to eq(97)
       end
     end
 
     describe 'Pxem commands' do
       describe 'I/O' do
         it '.p' do
-          capture{ @pxem.run('Hello, world!.p') }.should == 'Hello, world!'
+          expect(capture{ @pxem.run('Hello, world!.p') }).to eq('Hello, world!')
         end
 
         it '.o' do
-          capture{ @pxem.run('Hi.o') }.should == 'H'
+          expect(capture{ @pxem.run('Hi.o') }).to eq('H')
         end
 
         it '.n' do
-          capture{ @pxem.run('Hi.n') }.should == '72'
+          expect(capture{ @pxem.run('Hi.n') }).to eq('72')
         end
 
         #it '.i' do
@@ -99,49 +99,49 @@ describe RPxem do
 
       describe 'Stack' do
         it '.c' do
-          @pxem.run('Hi.c').should == [105, 72, 72]
+          expect(@pxem.run('Hi.c')).to eq([105, 72, 72])
         end
 
         it '.s' do
-          @pxem.run('Hi.s').should == [105]
+          expect(@pxem.run('Hi.s')).to eq([105])
         end
 
         it '.v' do
-          @pxem.run('Hi.v').should == [72, 105]
+          expect(@pxem.run('Hi.v')).to eq([72, 105])
         end
       end
 
       describe 'File' do
         it '.f' do
-          @pxem.run('.f', 'File').should == [101, 108, 105, 70]
+          expect(@pxem.run('.f', 'File')).to eq([101, 108, 105, 70])
         end
 
         it '.e' do
-          @pxem.run('.e', 'File.d').should == [101, 108, 105, 70]
+          expect(@pxem.run('.e', 'File.d')).to eq([101, 108, 105, 70])
         end
       end
 
       describe 'Rand' do
         it '.r' do
-          @pxem.run('d.r').first.should be_within(100).of(0)
+          expect(@pxem.run('d.r').first).to be_within(100).of(0)
         end
       end
 
       describe 'Loop' do
         it '.w' do
-          capture{ @pxem.run('a.whoge.paa.-.a') }.should == 'hoge'
+          expect(capture{ @pxem.run('a.whoge.paa.-.a') }).to eq('hoge')
         end
 
         it '.x' do
-          capture{ @pxem.run('e.xhog.pba.a') }.should == 'hoge'
+          expect(capture{ @pxem.run('e.xhog.pba.a') }).to eq('hoge')
         end
 
         it '.y' do
-          capture{ @pxem.run('e.yhog.pab.a') }.should == 'hoge'
+          expect(capture{ @pxem.run('e.yhog.pab.a') }).to eq('hoge')
         end
 
         it '.z' do
-          capture{ @pxem.run('e.zhog.paa.a') }.should == 'hoge'
+          expect(capture{ @pxem.run('e.zhog.paa.a') }).to eq('hoge')
         end
 
         it '.a' do
@@ -152,44 +152,44 @@ describe RPxem do
       describe 'Temporary area' do
         it '.t' do
           @pxem.run('a.t')
-          @pxem.temp.should == 97
+          expect(@pxem.temp).to eq(97)
         end
 
         it '.m' do
-          @pxem.run('a.t.m.m').should == [97, 97]
+          expect(@pxem.run('a.t.m.m')).to eq([97, 97])
         end
       end
 
       describe '.d' do
         it '.d' do
-          @pxem.run('Hi.d').should == [105, 72]
+          expect(@pxem.run('Hi.d')).to eq([105, 72])
         end
       end
 
       describe 'Math' do
         it '.+' do
-          @pxem.run('ab.+').should == [98 + 97]
-          @pxem.run('ba.+').should == [98 + 97]
+          expect(@pxem.run('ab.+')).to eq([98 + 97])
+          expect(@pxem.run('ba.+')).to eq([98 + 97])
         end
 
         it '.-' do
-          @pxem.run('ab.-').should == [98 - 97]
-          @pxem.run('ba.-').should == [98 - 97]
+          expect(@pxem.run('ab.-')).to eq([98 - 97])
+          expect(@pxem.run('ba.-')).to eq([98 - 97])
         end
 
         it '.!' do
-          @pxem.run('ab.!').should == [98 * 97]
-          @pxem.run('ba.!').should == [98 * 97]
+          expect(@pxem.run('ab.!')).to eq([98 * 97])
+          expect(@pxem.run('ba.!')).to eq([98 * 97])
         end
 
         it '.$' do
-          @pxem.run('ab.$').should == [98 / 97]
-          @pxem.run('ba.$').should == [98 / 97]
+          expect(@pxem.run('ab.$')).to eq([98 / 97])
+          expect(@pxem.run('ba.$')).to eq([98 / 97])
         end
 
         it '.%' do
-          @pxem.run('ab.%').should == [98 % 97]
-          @pxem.run('ba.%').should == [98 % 97]
+          expect(@pxem.run('ab.%')).to eq([98 % 97])
+          expect(@pxem.run('ba.%')).to eq([98 % 97])
         end
       end
     end
