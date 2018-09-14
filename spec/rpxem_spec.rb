@@ -16,8 +16,12 @@ describe RPxem do
       @stack = RPxem::Stack.new
     end
 
-    it 'should be positive' do
-      expect{ @stack.push(-1) }.to raise_error ArgumentError
+    it 'should accept a positive integer' do
+      expect{ @stack.push(1) }.not_to raise_error
+    end
+
+    it 'should accept a negative integer' do
+      expect{ @stack.push(-1) }.not_to raise_error
     end
 
     it 'can be zero' do

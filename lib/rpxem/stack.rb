@@ -40,8 +40,6 @@ module RPxem
       args.each do |arg|
         if (!arg.is_a? Integer)
           raise ArgumentError.new 'Argument must be Integer'
-        elsif (arg != arg.abs)
-          raise ArgumentError.new 'Argument must be positive'
         end
       end
     end
