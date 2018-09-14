@@ -100,7 +100,8 @@ module RPxem
 
     # .i:
     def input
-      @stack.push(*STDIN.getc.ord)
+      stdin = STDIN.getc
+      @stack.push(stdin ? stdin.ord : -1)
     end
 
     # ._:
