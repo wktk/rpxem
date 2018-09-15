@@ -20,5 +20,4 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency 'bundler', '~> 1.16'
   gem.add_development_dependency 'rspec', '~> 3.8'
   gem.add_development_dependency 'rake', '~> 10.0'
-  gem.add_development_dependency 'rdoc', '~> 6.0'
 end
