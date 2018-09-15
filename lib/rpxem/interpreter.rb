@@ -1,5 +1,4 @@
 require 'rpxem/stack'
-require 'rpxem/version'
 require 'scanf'
 
 module RPxem
