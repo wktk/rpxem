@@ -72,8 +72,10 @@ Hello, world!
 
 ## License
 
-Copyright (c) 2012 wktk.  This software is distributed under the
-MIT License.  See `MIT-LICENSE.txt` for details.
+Copyright (c) 2012, 2018 wktk.  
+This software is distributed under the MIT License.  
+See `MIT-LICENSE.txt` for details.
+
 
 ## See also
 
