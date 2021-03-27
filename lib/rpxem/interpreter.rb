@@ -111,7 +111,7 @@ module RPxem
 
     # .c:
     def copy
-      @stack.push(@stack.last)
+      @stack.push(@stack.last) unless @stack.empty?
     end
 
     # .s:
