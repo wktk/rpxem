@@ -26,6 +26,7 @@ module RPxem
         if (@cursor < length && 46 == char && name = @mapping[@filename[@cursor].chr.downcase])
           @stack.push(*buffer)
           buffer = RPxem::Stack.new
+          break if name == 'terminate'
           __send__(name)
           @cursor += 1
         else
@@ -68,8 +69,8 @@ module RPxem
         't' => 'to_temp',
         'm' => 'from_temp',
 
-        # Do nothing
-        'd' => 'void',
+        # Terminate execution
+        'd' => 'terminate',
 
         # Math
         '+' => 'addition',
@@ -110,7 +111,7 @@ module RPxem
 
     # .c:
     def copy
-      @stack.push(@stack.last)
+      @stack.push(@stack.last) unless @stack.empty?
     end
 
     # .s:
@@ -198,10 +199,6 @@ module RPxem
     # .m:
     def from_temp
       @stack.push(@temp) if @temp
-    end
-
-    # .d:
-    def void
     end
 
     # .+:

@@ -166,7 +166,7 @@ describe RPxem do
 
       describe '.d' do
         it '.d' do
-          expect(@pxem.run('Hi.d')).to eq([105, 72])
+          expect(@pxem.run('Hi.d.hello.p')).to eq([105, 72])
         end
       end
 

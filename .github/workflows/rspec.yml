@@ -1,0 +1,15 @@
+name: Run RSpec
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+jobs:
+  run_rspec:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: bundle install -j4
+      - run: bundle exec rspec
