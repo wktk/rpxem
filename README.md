@@ -1,8 +1,8 @@
-# RPxem
+# rpxem
 
 [![Build Status](https://travis-ci.org/wktk/rpxem.svg?branch=master)](https://travis-ci.org/wktk/rpxem)
 
-RPxem is a Ruby implementation of [Pxem], an esoteric programming language that
+rpxem is a Ruby implementation of [Pxem], an esoteric programming language that
 enables you to create programs in 0-byte files.
 
 [Pxem]: https://web.archive.org/web/20120605223423/http://cfs.maxn.jp/neta/pxem.php
@@ -31,7 +31,7 @@ $ gem install rpxem
 
 ### Using in Ruby
 
-Require `RPxem`:
+Require `rpxem`:
 
 ```ruby
 require 'rpxem'

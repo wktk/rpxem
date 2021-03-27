@@ -7,7 +7,7 @@ Gem::Specification.new do |gem|
   gem.email         = ['k.wakitani@gmail.com']
 
   gem.summary       = %q{Pxem implementation in Ruby}
-  gem.description   = %q{RPxem is a Ruby implementation of Pxem, an esoteric programming language that enables you to create programs in 0-byte files.}
+  gem.description   = %q{rpxem is a Ruby implementation of Pxem, an esoteric programming language that enables you to create programs in 0-byte files.}
   gem.homepage      = 'https://github.com/wktk/rpxem'
   gem.license       = 'MIT'
 
